@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'control=snake.controller:main',
+            'sim=snake.simulation:main'
         ],
     },
 )
