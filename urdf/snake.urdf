@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot name="snake">
+<material name="black">
+    <color rgba="0 0 0 1"/>
+</material>
+<material name="grey">
+    <color rgba="0.2 0.2 0.2 1"/>
+</material>
+<link name="world"/>
+<link name="body1">
+    <visual>
+        <geometry>
+            <cylinder radius="0.1" length="0.5"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0 "/>
+        <material name="black"/>
+    </visual>
+    <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.56"/>
+        <inetia 
+        ixx="0" ixy="0.1" ixz="0.1" 
+        iyy="0" iyz="0.1"
+        izz="0"/>
+    <inertial>
+</link>
+<link name="body2">
+    <visual>
+        <geometry>
+            <cylinder radius="0.1" length="0.5"/>
+        </geometry>
+        <origin xyz="0 0 0.25" rpy="0 0 0 "/>
+        <material name="grey"/>
+    </visual>
+        <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.56"/>
+        <inetia 
+        ixx="0" ixy="0.1" ixz="0.1" 
+        iyy="0" iyz="0.1"
+        izz="0"/>
+    <inertial>
+</link>
+<link name="body3">
+    <visual>
+        <geometry>
+            <cylinder radius="0.1" length="0.5"/>
+        </geometry>
+        <origin xyz="0 0 0.5" rpy="0 0 0 "/>
+        <material name="black"/>
+    </visual>
+</link>
+    <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.56"/>
+        <inetia 
+        ixx="0" ixy="0.1" ixz="0.1" 
+        iyy="0" iyz="0.1"
+        izz="0"/>
+    <inertial>
+<link name="body4">
+    <visual>
+        <geometry>
+            <cylinder radius="0.1" length="0.5"/>
+        </geometry>
+        <origin xyz="0 0 0.75" rpy="0 0 0 "/>
+        <material name="grey"/>
+    </visual>
+</link>
+    <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="0.56"/>
+        <inetia 
+        ixx="0" ixy="0.1" ixz="0.1" 
+        iyy="0" iyz="0.1"
+        izz="0"/>
+    <inertial>
+
+<joint name="world1" type="revolute">
+    <parent link="world"/>
+    <child link="body1"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.8" upper="0.8" effort="10" velocity="2"/>
+    <origin xyz="0 0 0.25" rpy="0 1.57 1.57"/>
+</joint>
+<joint name="world2" type="revolute">
+    <parent link="body1"/>
+    <child  link="body2"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <limit lower="-0.8" upper="0.8" effort="10" velocity="2"/>
+</joint>
+
+<joint name="world3" type="revolute">
+    <parent link="body2"/>
+    <child link="body3"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <limit lower="-0.8" upper="0.8" effort="10" velocity="2"/>
+</joint>
+<joint name="world4" type="revolute">
+    <parent link="body3"/>
+    <child link="body4"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <limit lower="-0.8" upper="0.8" effort="10" velocity="2"/>
+</joint>
+
+
+
+</robot>
